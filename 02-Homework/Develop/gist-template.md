@@ -1,10 +1,20 @@
-# RegexPLAINED
+# Reg-exPLAINED
 
 Introductory paragraph (replace this with your text)
+A regular expression or regex for short is a combination of defined characters and meta-characters with special functions used to define a search pattern. 
 
-## Summary
+Even the most basic of searches such as hitting `CTRL - F` and searching a specific word can be thought of in terms of regex; referred to as a `literal`, where a word or phrase is defined and that exact text is matched against. 
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+Regex tends to be used for more complicated and agnostic searches where a set of numbers or characters are known to be valid and the expression uses a combination of rules to define what results should be returned.
+
+## Summary 
+
+A commonly used example of this more detailed regex is matching email addresses which can look like this; 
+* Matching an Email: `/^([a-z0-9_\.-]+)`@`([\da-z\.-]+)\`.`([a-z\.]{2,6})$/`
+
+Here the regex looks for the appropriate valid characters before and after the `@` symbol and `.` each email contains to filter them from a larger block of text or to assist in confirming them as valid submissions.
+
+Each regex is made up of multiple components which we will explore through this email matching expression. 
 
 ## Table of Contents
 
@@ -21,6 +31,10 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
 ### Anchors
 
+The `anchors` are used to wrap the regex expression denoting the beginning of the string being matched from the `^`, and the ending of a string `$`. The exact paramaters of what will return a match being defined within these special characters.
+
+* Matching an Email: `/^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$/`
+
 ### Quantifiers
 
 A `quantifier` is a symbol or expression used after a character or group which specifies how often that element is allowed to occur to have met the search conditions.
@@ -36,8 +50,13 @@ A `quantifier` is a symbol or expression used after a character or group which s
 | {min,} | *min* times | `ab{2,}c` | matches "abbc", "abbbc" etc |
 | {min,max} | *min* & *max* times | `ab{1,2}c` | matches "abc" and "abbc" |
 
+* Matching an Email: /^([a-z0-9_\.-]`+`)@([\da-z\.-]`+`)\.([a-z\.]`{2,6}`)$/
+
+In our example email matching regex this is used to state that only 2-6 characters may be included after the `.` at the end of the domain. It also makes use of the `+` quantifier indicating there should be one or more matches from the criteria.
 
 ### Grouping Constructs
+
+
 
 ### Bracket Expressions
 
